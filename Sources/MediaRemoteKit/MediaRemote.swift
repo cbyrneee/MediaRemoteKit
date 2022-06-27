@@ -14,7 +14,7 @@ public struct MediaRemote {
      Gets the now playing information for any app on the system
      - Returns: A dictionary of keys (String) to their types
      */
-    func nowPlayingDictionary() async -> [String: Any] {
+    public func nowPlayingDictionary() async -> [String: Any] {
         await withCheckedContinuation { continuation in
             MediaRemoteFramework.shared.getNowPlayingInfo(DispatchQueue.main) { result in
                 continuation.resume(returning: result)
@@ -26,7 +26,7 @@ public struct MediaRemote {
      This is a simplified version of the `getNowPlayingInfo` function.
      - Returns: If `MediaRemoteFrameworkKeys.title` is nil, a `nil` object will be returned. Otherwise, a simplified now playing information object
      */
-    func nowPlayingInfo() async -> NowPlayingInfo? {
+    public func nowPlayingInfo() async -> NowPlayingInfo? {
         let information = await nowPlayingDictionary()
 
         // Title is the only required key, the rest are nullable
@@ -62,7 +62,7 @@ public struct MediaRemote {
      Gets the state of the application that's playing music on the system.
      - Returns: A `PlaybackState` value, or `.unknown` if an error occurred
      */
-    func playbackState() async -> PlaybackState {
+    public func playbackState() async -> PlaybackState {
         await withCheckedContinuation { continuation in
             MediaRemoteFramework.shared.getNowPlayingApplicationPlaybackState(DispatchQueue.main) { result in
                 let state = PlaybackState(rawValue: result)
