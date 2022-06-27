@@ -6,18 +6,18 @@ import Foundation
 
 /// The state of the application's playback
 public enum PlaybackState: Int {
-  /// The state couldn't be retrieved
-  case unknown = 0
+    /// The state couldn't be retrieved
+    case unknown = 0
 
-  /// The application is playing music
-  case playing
+    /// The application is playing music
+    case playing
 
-  /// The user has paused the playback
-  case paused
+    /// The user has paused the playback
+    case paused
 
-  /// The playback has been stopped (i.e. the queue has ended)
-  case stopped
+    /// The playback has been stopped (i.e. the queue has ended)
+    case stopped
 
-  /// The playback has been interrupted (i.e. an error occurred)
-  case interrupted
+    /// The playback has been interrupted (i.e. an error occurred)
+    case interrupted
 }

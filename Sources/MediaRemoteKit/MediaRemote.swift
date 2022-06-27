@@ -36,7 +36,7 @@ public struct MediaRemote {
 
         let startTimestamp = information[MediaRemoteFrameworkKeys.timestamp] as? Date
 
-        var estimatedElapsed: Double? = nil;
+        var estimatedElapsed: Double? = nil
         if let startTimestamp = startTimestamp {
             let currentTime = Date().timeIntervalSince1970
             let startTime = startTimestamp.timeIntervalSince1970

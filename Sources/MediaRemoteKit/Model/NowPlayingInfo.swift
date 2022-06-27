@@ -5,21 +5,21 @@
 import Foundation
 
 public struct NowPlayingInfo {
-  let title: String
-  let artist: String?
-  let album: String?
+    public let title: String
+    public let artist: String?
+    public let album: String?
 
-  let trackNumber: Int?
-  let genre: String?
+    public let trackNumber: Int?
+    public let genre: String?
 
-  let startTimestamp: Date?
-  let duration: Double?
+    public let startTimestamp: Date?
+    public let duration: Double?
 
-  /// This is bugged in MediaRemote and only gets updated when the track is paused and played again
-  let elapsed: Double?
+    /// This is bugged in MediaRemote and only gets updated when the track is paused and played again
+    public let elapsed: Double?
 
-  /// This is populated by MediaRemoteKit, and might be inaccurate
-  let estimatedElapsed: Double?
+    /// This is populated by MediaRemoteKit, and might be inaccurate
+    public let estimatedElapsed: Double?
 
-  let isMusicApp: Bool
+    public let isMusicApp: Bool
 }

@@ -4,9 +4,10 @@
 
 import Foundation
 import XCTest
+
 @testable import MediaRemoteKit
 
-class MediaRemoteTests : XCTestCase {
+class MediaRemoteTests: XCTestCase {
     func testNowPlayingDictionary() async {
         let information = await MediaRemote.shared.nowPlayingDictionary()
         print("Dictionary: \(String(describing: information))")

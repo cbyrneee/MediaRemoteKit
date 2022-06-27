@@ -4,6 +4,6 @@
 
 import Foundation
 
-enum MediaRemoteFrameworkError : Error {
+enum MediaRemoteFrameworkError: Error {
     case failedToGetFunctionPointer
 }

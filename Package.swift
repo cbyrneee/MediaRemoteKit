@@ -12,10 +12,9 @@ let package = Package(
         .library(
             name: "MediaRemoteKit",
             targets: ["MediaRemoteKit"]
-        ),
+        )
     ],
-    dependencies: [
-    ],
+    dependencies: [],
     targets: [
         .target(
             name: "MediaRemoteKit",

@@ -6,7 +6,10 @@ import Foundation
 
 struct MediaRemoteFramework {
     public static let shared = try! MediaRemoteFramework()
-    private static let bundle = CFBundleCreate(kCFAllocatorDefault, NSURL(fileURLWithPath: "/System/Library/PrivateFrameworks/MediaRemote.framework"))
+    private static let bundle = CFBundleCreate(
+        kCFAllocatorDefault,
+        NSURL(fileURLWithPath: "/System/Library/PrivateFrameworks/MediaRemote.framework")
+    )
 
     let getNowPlayingInfo: @convention(c) (DispatchQueue, @escaping ([String: Any]) -> Void) -> Void
     let getNowPlayingApplicationPlaybackState: @convention(c) (DispatchQueue, @escaping (Int) -> Void) -> Void
@@ -15,8 +18,12 @@ struct MediaRemoteFramework {
         let getNowPlayingInfoPointer = try MediaRemoteFramework.getPointer(for: "MRMediaRemoteGetNowPlayingInfo")
         getNowPlayingInfo = MediaRemoteFramework.defineFunction(pointer: getNowPlayingInfoPointer)
 
-        let getNowPlayingApplicationPlaybackStatePointer = try MediaRemoteFramework.getPointer(for: "MRMediaRemoteGetNowPlayingApplicationPlaybackState")
-        getNowPlayingApplicationPlaybackState = MediaRemoteFramework.defineFunction(pointer: getNowPlayingApplicationPlaybackStatePointer)
+        let getNowPlayingApplicationPlaybackStatePointer = try MediaRemoteFramework.getPointer(
+            for: "MRMediaRemoteGetNowPlayingApplicationPlaybackState"
+        )
+        getNowPlayingApplicationPlaybackState = MediaRemoteFramework.defineFunction(
+            pointer: getNowPlayingApplicationPlaybackStatePointer
+        )
     }
 
     private static func getPointer(for name: String) throws -> UnsafeMutableRawPointer {
